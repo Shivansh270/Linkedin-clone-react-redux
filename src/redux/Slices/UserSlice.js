@@ -7,15 +7,15 @@ export const UserSlice = createSlice({
         user: null
     },
     reducers : {
-        increment: (state) => {
-            
+        login: (state, action) => {
+            state.user = action.payload;
         },
 
-        decrement: () => {
-
+        logout: (state) => {
+            state.user = null;
         }
     }
 })
 
-export const {increment, decrement} = UserSlice.actions;
+export const {login, logout} = UserSlice.actions;
 export default UserSlice.reducer;

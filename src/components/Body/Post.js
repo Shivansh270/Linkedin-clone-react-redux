@@ -7,12 +7,12 @@ import "./Post.css"
 import { Avatar } from '@mui/material';
 import InputOption from './InputOption';
   
-const Post = ({sender, description, message}) => {
+const Post = ({sender, description, message, photoUrl}) => {
 
   return (
     <div className="post">
         <div className="post-header">
-          <Avatar></Avatar>
+          <Avatar src={photoUrl}>{sender[0]}</Avatar>
           <div className="postInfo">
             <h2>{sender}</h2>
             <p>{description}</p>

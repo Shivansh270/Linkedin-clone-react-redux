@@ -68,7 +68,7 @@
     color: #0a66c2 !important;
   }
   
-  .sidebar_bottom {
+  .sidebar-bottom {
     text-align: left;
     padding: 10px;
     border: 1px solid lightgray;
@@ -77,7 +77,7 @@
     margin-top: 10px;
   }
   
-  .sidebar_bottom > p {
+  .sidebar-bottom > p {
     font-size: 13px;
     padding-bottom: 10px;
   }

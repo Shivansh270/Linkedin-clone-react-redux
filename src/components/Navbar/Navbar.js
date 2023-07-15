@@ -7,9 +7,20 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import NavOption from './NavOption';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/Slices/UserSlice';
+import { auth } from '../../firebase';
 
 
 const Navbar = () => {
+
+  const dispatch = useDispatch()
+
+  const logoutOfApp = () => {
+    dispatch(logout())
+    auth.signOut()
+  }
+
   return (
     <nav className='navbar'>
 
@@ -34,6 +45,7 @@ const Navbar = () => {
           <NavOption
           avatar="/static/images/avatar/1.jpg"
           title="me"
+          onClick={logoutOfApp}
           // sx={{ width: 20, height: 10 }}
           />
         </div>
