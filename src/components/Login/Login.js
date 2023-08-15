@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './Login.css'
-import { login } from '../../redux/Slices/UserSlice';
-import { useDispatch } from 'react-redux';
-import { auth } from '../../firebase';
+import React, { useState } from "react";
+import "./Login.css";
+import { login } from "../../redux/Slices/UserSlice";
+import { useDispatch } from "react-redux";
+import { auth } from "../../firebase";
 
 const Login = () => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    name: '',
-    profilePic: '',
-    email: '',
-    password: '',
+    name: "",
+    profilePic: "",
+    email: "",
+    password: "",
   });
 
   function changeHandler(event) {
@@ -46,22 +46,27 @@ const Login = () => {
     const { name, email, password, profilePic } = formData;
 
     if (!name) {
-      return alert('Please enter a full name');
+      return alert("Please enter a full name");
     }
 
     try {
-      const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+      const userCredential = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
       const user = userCredential.user;
       await user.updateProfile({
         displayName: name,
         photoURL: profilePic,
       });
-      dispatch(login({
-        email,
-        uid: user.uid,
-        displayName: name,
-        photoURL: profilePic,
-      }));
+      dispatch(
+        login({
+          email,
+          uid: user.uid,
+          displayName: name,
+          photoURL: profilePic,
+        })
+      );
     } catch (error) {
       alert(error);
     }
@@ -73,6 +78,12 @@ const Login = () => {
         src="https://www.pinclipart.com/picdir/middle/55-557165_graphic-transparent-library-file-logo-wikimedia-commons-transparent.png"
         alt="linkin logo"
       />
+
+      <div className="test-details">
+        <h4>For test</h4>
+        <p>email: testuser@gmail.com</p>
+        <p>password: testuser</p>
+      </div>
 
       <form>
         <input
@@ -108,7 +119,7 @@ const Login = () => {
         </button>
       </form>
       <p>
-        Not a member?{' '}
+        Not a member?{" "}
         <span className="login-register" onClick={register}>
           Register Now
         </span>

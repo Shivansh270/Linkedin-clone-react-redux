@@ -1,18 +1,18 @@
-import React, { forwardRef, useState } from 'react';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import SendIcon from '@mui/icons-material/Send';
-import CommentIcon from '@mui/icons-material/Comment';
-import ShareIcon from '@mui/icons-material/Share';
+import React, { forwardRef, useState } from "react";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import SendIcon from "@mui/icons-material/Send";
+import CommentIcon from "@mui/icons-material/Comment";
+import ShareIcon from "@mui/icons-material/Share";
 import "./Post.css";
-import { Avatar } from '@mui/material';
-import InputOption from './InputOption';
+import { Avatar } from "@mui/material";
+import InputOption from "./InputOption";
 
 const Post = forwardRef(({ sender, description, message, photoUrl }, ref) => {
   const [liked, setLiked] = useState(false);
 
   const handleLikeToggle = () => {
     setLiked(!liked);
-  }
+  };
 
   return (
     <div ref={ref} className="post">
@@ -39,7 +39,7 @@ const Post = forwardRef(({ sender, description, message, photoUrl }, ref) => {
         <InputOption Icon={SendIcon} title="Send" color="gray" />
       </div>
     </div>
-  )
+  );
 });
 
 export default Post;
